@@ -1,7 +1,10 @@
 InterviewApp::Application.routes.draw do
-  get "pages/home"
-  get "pages/contact"
-  get "pages/about"
+  match '/contact', :to => 'pages#contact', :as => :contact
+  match '/about', :to => 'pages#about', :as => :about
+  match '/help', :to => 'pages#help', :as => :help
+  match '/home', :to => 'pages#home', :as => :home
+  match '/login', :to => 'pages#login', :as => :login
+  root :to => "pages#home"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

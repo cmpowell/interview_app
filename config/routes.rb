@@ -1,5 +1,7 @@
 InterviewApp::Application.routes.draw do
+
   resources :users
+  resources :sessions, :only => [:new, :create, :destroy]
 
   match '/contact', :to => 'pages#contact', :as => :contact
   match '/about', :to => 'pages#about', :as => :about

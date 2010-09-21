@@ -8,6 +8,7 @@ InterviewApp::Application.routes.draw do
   match '/help', :to => 'pages#help', :as => :help
   match '/home', :to => 'pages#home', :as => :home
   match '/login', :to => 'pages#login', :as => :login
+  match '/logout', :to => 'pages#home', :as => :logout
   match '/signup', :to => 'users#new', :as => :signup
   root :to => "pages#home"
 

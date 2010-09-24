@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation
   
+  has_many :recipes, :dependent => :destroy
+  
   validates :name, :presence => true,
                    :length => { :maximum => 50 }
   validates :email, :presence => true,
@@ -27,6 +29,10 @@ class User < ActiveRecord::Base
   def self.authenticate_with_salt(id, cookie_salt) 
     user = find_by_id(id) 
     (user && user.salt == cookie_salt) ? user : nil
+  end
+  
+  def recipebox
+    Recipe.where("user_id = ?", id)
   end
   
   private

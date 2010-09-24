@@ -8,3 +8,8 @@ end
 Factory.sequence :email do |n| 
   "person-#{n}@example.com"
 end
+
+Factory.define :recipe do |recipe|
+  recipe.instructions "Preheat to 350 then cook"
+  recipe.association :user
+end

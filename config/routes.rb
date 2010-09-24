@@ -1,13 +1,16 @@
 InterviewApp::Application.routes.draw do
 
+  get "recipes/create"
+
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
+  resources :recipes, :only => [:create, :destroy]
 
   match '/contact', :to => 'pages#contact', :as => :contact
   match '/about', :to => 'pages#about', :as => :about
   match '/help', :to => 'pages#help', :as => :help
   match '/home', :to => 'pages#home', :as => :home
-  match '/login', :to => 'pages#login', :as => :login
+  match '/login', :to => 'sessions#new', :as => :login
   match '/logout', :to => 'pages#home', :as => :logout
   match '/signup', :to => 'users#new', :as => :signup
   root :to => "pages#home"

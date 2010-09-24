@@ -123,4 +123,48 @@ describe User do
       @user.should be_admin
     end 
   end
+  
+  describe "has recipes" do
+    before(:each) do
+      @user = User.create(@attr)
+      @recipe1 = Factory(:recipe, :user => @user, :created_at => 2.hours.ago)
+      @recipe2 = Factory(:recipe, :user => @user, :created_at => 4.days.ago)
+    end
+    
+    it "should have a recipe" do
+      @user.should respond_to(:recipes)
+    end
+    
+    it "should have the recipes in reverse cronological order" do
+      #TODO Break this to provide a known bug - where recipes don't show in order
+      @user.recipes.should == [@recipe1, @recipe2]
+    end
+    
+    it "should destroy user's recipe" do
+      @user.destroy
+      [@recipe1, @recipe2].each do |recipe|
+        Recipe.find_by_id(recipe.id).should be_nil
+      end
+    end
+    
+    describe "status recipebox" do
+      it "should have a recipebox" do
+        @user.should respond_to(:recipebox)
+      end
+      
+      it "should include the user's recipes" do
+        @user.recipebox.include?(@recipe1).should be_true
+        @user.recipebox.include?(@recipe2).should be_true
+      end
+      
+      it "should not include a different user's recipes" do
+        recipe3 = Factory(:recipe, :user => 
+                          Factory(:user, :email => Factory.next(:email)))
+        @user.recipebox.include?(recipe3).should be_false
+      end
+      
+      
+    end
+  end
+  
 end

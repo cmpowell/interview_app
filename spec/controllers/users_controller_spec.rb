@@ -195,7 +195,7 @@ describe UsersController do
     describe "as a non-signed-in user" do 
       it "should deny access" do
         delete :destroy, :id => @user
-        response.should redirect_to(login_path) 
+        response.should redirect_to(root_path) 
       end
     end
   
@@ -211,7 +211,8 @@ describe UsersController do
       before(:each) do 
         admin = Factory(:user, 
                         :email => "admin@example.com", 
-                        :admin => true) test_sign_in(admin)
+                        :admin => true) 
+        test_sign_in(admin)
       end
       
       it "should destroy the user" do 
@@ -224,6 +225,19 @@ describe UsersController do
         delete :destroy, :id => @user 
         response.should redirect_to(users_path)
       end
+    end
+  end
+  
+  describe "GET 'show'" do
+    before(:each) do 
+      @user = Factory(:user)
+    end
+    
+    it "should show the user's recipes" do
+      recipe1 = Factory(:recipe, :user => @user, :instructions => "Stir it") 
+      recipe2 = Factory(:recipe, :user => @user, :instructions => "Sear it") 
+      get :show, :id => @user 
+      response.should be_success
     end
   end
 end

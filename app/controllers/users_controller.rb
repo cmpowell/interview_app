@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @title = @user.name
+    @recipes = @user.recipes.paginate(:page => params[:page])
   end
   
   def index
@@ -52,11 +53,9 @@ class UsersController < ApplicationController
   end
   
   private
-    def authenticate
-      deny_access unless signed_in?
-    end
     
     def admin_user
-      redirect_to(root_path) unless current_user.admin? 
+      redirect_to(root_path) unless (current_user && current_user.admin?)
+        
     end
 end

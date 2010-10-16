@@ -11,7 +11,7 @@ InterviewApp::Application.routes.draw do
   match '/help', :to => 'pages#help', :as => :help
   match '/home', :to => 'pages#home', :as => :home
   match '/login', :to => 'sessions#new', :as => :login
-  match '/logout', :to => 'pages#home', :as => :logout
+  match '/logout', :to => 'sessions#destroy', :as => :logout
   match '/signup', :to => 'users#new', :as => :signup
   root :to => "pages#home"
 

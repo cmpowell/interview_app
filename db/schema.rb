@@ -10,13 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100921203226) do
+ActiveRecord::Schema.define(:version => 20101016132450) do
 
   create_table "recipes", :force => true do |t|
     t.string   "instructions"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
+    t.integer  "num_served"
+    t.text     "ingredients"
   end
 
   create_table "users", :force => true do |t|

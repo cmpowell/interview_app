@@ -176,14 +176,26 @@ table.recipes tr td.gravatar {
   vertical-align: top; 
   width: 50px;
 }
-table.recipes tr td.micropost { 
+table.recipes tr td.recipe { 
   border-top: 1px solid #ccc; 
   vertical-align: top; 
   padding-top: 10px;
 }
-table.recipes tr td.micropost span.timestamp { 
+table.recipes tr td.recipe span.title {
+	font-weight: bold;
+	color: #76a022;
+}
+table.recipes tr td.recipe span.servings {
+	font-size: 75%;
+	color: #666;
+}
+table.recipes tr td.recipe span.fieldname {
+	font-size: 95%;
+	color: #777;
+}
+table.recipes tr td.recipe span.timestamp { 
   display: block; 
-  font-size: 85%; 
+  font-size: 50%; 
   color: #666;
 }
 div.user_info img { 

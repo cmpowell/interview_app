@@ -4,10 +4,10 @@
   </td>
   <td class="recipe"> 
     <span class="user">
-      <%= link_to recipebox_item.user.name, recipebox_item.user %> 
+      <%= link_to recipebox_item.title, recipebox_item.user %> 
     </span>
     <span class="instructions">
-      <%= recipebox_item.instructions %>
+      Serves <%= recipebox_item.num_served %>
     </span> 
     <span class="timestamp">
       Posted <%= time_ago_in_words(recipebox_item.created_at) %> ago. 

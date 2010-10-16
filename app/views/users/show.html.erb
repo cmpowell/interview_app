@@ -12,8 +12,7 @@
       <% end %>
     </td> 
     <td class="sidebar round">
-      <strong>Name</strong> <%= @user.name %><br />
-      <strong>URL</strong> <%= link_to user_path(@user), @user %> 
+      <strong>Name</strong> <%= link_to @user.name, @user %><br/>
       <strong>Recipes</strong> <%= @user.recipes.count %>
     </td>
   </tr> 

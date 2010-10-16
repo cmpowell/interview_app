@@ -6,6 +6,10 @@ body {
 }
 header { 
   padding-top: 20px;
+	background: #6d7b8d;
+}
+footer {
+	background: #6d7b8d;
 }
 header img { 
   padding: 1em; 

@@ -1,0 +1,33 @@
+<h1>
+Known Issues  
+</h1>
+<p>
+  This page describes the known issues in InterviewApp.
+</p>
+<p>
+  Issues related to functionality
+  <ol>
+    <li>No method is available to delete recipes</li>
+    <li>Very long recipes will generate an error page (too long to be stored in db)</li>
+    <li>At login redirect goes to the same page, not always the page you originally requested</li>
+    <li>Emails are not required to look like emails (e.g., "imanemail" is allowed)</li>
+    <li>The check that emails are unique is case sensitive (e.g., foo@BAR.com does not match FOO@bar.com)</li>
+    <li>Titles must be between 4 and 8 characters long, which seems overly restrictive</li>
+    <li>If you enter a non-integer for servings, it fails silently and shows 0 thereafter</li>
+    <li>Clicking on a recipe takes you to the page but not to that recipe on the page</li>
+  </ol>
+  Non-Functional Issues
+  <ol>
+    <li>If two users submit simultaneously, a race in email validation vs db update might allow non-unique emails </li>
+    <li>Any user can edit any other user's profile</li>
+    <li>An active session is not ended when the user closes the browser</li>
+    <li>The help isn't helpful</li>
+  </ol>
+  Look and feel problems
+  <ol>
+    <li>No way to delete recipes</li>
+    <li>Very long words aren't handled well in the UI</li>
+    <li>Updating a profile and failing produces a different browser title than original update</li>
+    <li>On IE, the signup button doesn't have rounded corners</li>
+  </ol>
+</p>

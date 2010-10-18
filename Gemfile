@@ -8,6 +8,7 @@ gem 'rails', '3.0.1'
 gem 'gravatar_image_tag'
 gem 'will_paginate', '3.0.pre'
 gem 'mysql2'
+gem 'faker', '0.3.1'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -29,7 +30,6 @@ gem 'mysql2'
 # and rake tasks are available in development mode:
 group :development do
   gem 'rspec-rails', '2.0.1'
-  gem 'faker', '0.3.1'
   gem 'sqlite3-ruby', :require => 'sqlite3'
 end
 
